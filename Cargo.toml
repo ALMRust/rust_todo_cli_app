@@ -1,5 +1,5 @@
 [package]
-name = "rust-todo-cli-app"
+name = "rust_todo_cli_app"
 version = "0.1.0"
 edition = "2021"
 
