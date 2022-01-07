@@ -43,48 +43,46 @@ pub fn get_command() -> Commands {
     match matches.subcommand() {
         ("add", Some(sub_m)) => {
             let text = sub_m.value_of("text").unwrap();
-            return Commands::Add(text.to_string());
+            Commands::Add(text.to_string())
         }
         ("edit", Some(sub_m)) => {
             let id = sub_m.value_of("id").unwrap();
             if let Ok(id) = id.parse() {
                 let text = sub_m.value_of("text").unwrap();
-                return Commands::Edit(id, text.to_string());
+                Commands::Edit(id, text.to_string())
             } else {
-                println!("{}", "Must pass a number as id for edit");
+                println!("Must pass a number as id for edit");
                 exit(1);
             }
         }
         ("complete", Some(sub_m)) => {
             let id = sub_m.value_of("id").unwrap();
             if let Ok(id) = id.parse() {
-                return Commands::Complete(id);
+                Commands::Complete(id)
             } else {
-                println!("{}", "Must pass a number as id for complete");
+                println!("Must pass a number as id for complete");
                 exit(1);
             }
         }
         ("incomplete", Some(sub_m)) => {
             let id = sub_m.value_of("id").unwrap();
             if let Ok(id) = id.parse() {
-                return Commands::Incomplete(id);
+                Commands::Incomplete(id)
             } else {
-                println!("{}", "Must pass a number as id for incomplete");
+                println!("Must pass a number as id for incomplete");
                 exit(1);
             }
         }
         ("remove", Some(sub_m)) => {
             let id = sub_m.value_of("id").unwrap();
             if let Ok(id) = id.parse() {
-                return Commands::Remove(id);
+                Commands::Remove(id)
             } else {
-                println!("{}", "Must pass a number as id for remove");
+                println!("Must pass a number as id for remove");
                 exit(1);
             }
         }
-        ("list", Some(_)) => {
-            return Commands::List;
-        }
+        ("list", Some(_)) => Commands::List,
         _ => {
             println!("Please enter a valid command or -h for help");
             exit(1);

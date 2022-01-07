@@ -3,7 +3,7 @@ use rusqlite::Connection;
 
 fn get_connection() -> Connection {
     match Connection::open("./test.sqlite") {
-        Ok(conn) => return conn,
+        Ok(conn) => conn,
         Err(e) => panic!("Could not establish database connection, error: {}", e),
     }
 }
