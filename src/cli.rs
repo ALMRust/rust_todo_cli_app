@@ -4,7 +4,7 @@ use crate::types::Commands;
 use clap::{App, Arg, SubCommand};
 use std::process::exit;
 
-pub fn cli_config() -> App<'static, 'static> {
+pub fn config() -> App<'static, 'static> {
     App::new("Rust Todo App")
         .version("1.0")
         .author("Alessandro Maclaine")
@@ -39,7 +39,7 @@ pub fn cli_config() -> App<'static, 'static> {
 }
 
 pub fn get_command() -> Commands {
-    let matches = cli_config().get_matches();
+    let matches = config().get_matches();
     match matches.subcommand() {
         ("add", Some(sub_m)) => {
             let text = sub_m.value_of("text").unwrap();

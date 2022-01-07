@@ -2,7 +2,7 @@ use crate::types::Commands::{Add, Complete, Edit, Incomplete, List, Remove};
 use crate::{cli, controllers, db};
 
 pub fn app() {
-    let conn = db::init_db();
+    let conn = db::init();
     let command = cli::get_command();
 
     let res = match command {

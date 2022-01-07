@@ -8,7 +8,7 @@ fn get_connection() -> Connection {
     }
 }
 
-pub fn init_db() -> Connection {
+pub fn init() -> Connection {
     let conn = get_connection();
     if let Err(e) = controllers::create_todo_table(&conn) {
         panic!("Database Error: {}", e)
